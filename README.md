@@ -16,14 +16,23 @@ You'll notice our MarkovTextGeneratorLoL constructor creates a List of ListNode 
 The idea for the train method is to build your list of lists:
 
 set "starter" to be the first word in the text  
+
 set "prevWord" to be starter
+
 for each word "w" in the source text starting at the second word
+
    check to see if "prevWord" is already a node in the list
+   
       if "prevWord" is a node in the list
+      
          add "w" as a nextWord to the "prevWord" node
+         
       else
+      
          add a node to the list with "prevWord" as the node's word
+         
          add "w" as a nextWord to the "prevWord" node
+         
     set "prevWord" = "w"
 
 add starter to be a next word for the last word in the source text.
@@ -51,13 +60,21 @@ Step 2: Implement the generateText method
 Now that you've trained on text, your next step will be producing text based on the input set.  To do this, you'll be implementing the algorithm below.
 
 set "currWord" to be the starter word
+
 set "output" to be ""
+
 add "currWord" to output
+
 while you need more words
+
    find the "node" corresponding to "currWord" in the list
+   
    select a random word "w" from the "wordList" for "node"
+   
    add "w" to the "output"
+   
    set "currWord" to be "w" 
+   
    increment number of words added to the list
    
 To help with implementing the method, you should author the ListNode getRandomNextWord method to help.  It will take care of the step above:
